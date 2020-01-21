@@ -85,7 +85,7 @@ module.exports = {
       {
         test: /.tsx?$/,
         include: [path.resolve(__dirname, "scripts")],
-        use: ["ts-loader"]
+        use: ["babel-loader", "ts-loader"]
       },
       {
         test: /\.scss$/,
