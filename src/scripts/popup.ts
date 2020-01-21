@@ -9,9 +9,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const url = tabs.length && tabs[0].url;
 
     const response = await browser.runtime.sendMessage({
-        msg: 'hello',
+        msg: 'asdasdas',
         url,
     });
+    
+    
 
     // eslint-disable-next-line no-console
     console.log(response);
