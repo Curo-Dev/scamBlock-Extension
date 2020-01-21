@@ -68,7 +68,11 @@ module.exports = {
     new CopyWebpackPlugin([{ from: "assets", to: "assets" }]),
     new WebextensionPlugin({
       vendor: targetBrowser,
-      manifestDefaults: { version: pkg.version }
+      manifestDefaults: {
+        version: pkg.version,
+        description: pkg.description,
+        name: pkg.name
+      }
     })
   ],
 
