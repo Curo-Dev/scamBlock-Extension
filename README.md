@@ -1,16 +1,18 @@
 <h1 align="center">🚀 web-extension-starter</h1>
 <p align="center">Web Extension starter to build "Write Once Run on Any Browser" extension</p>
-<h3 align="center">🙋‍♂️ Made by <a href="https://twitter.com/_abhijithv">@abhijithvijayan</a></h3>
+<h3 align="center">🙋‍♂️ Maintained by <a href="https://github.com/BasixKOR">@BasixKOR</a></h3>
 
 
 ## Features
 
-- Cross Browser Support (Web-Extensions API)
-- Browser Taylored Manifest generation
+- Cross Browser Support (Web-Extensions API) with mozilla's polyfill
+- Browser Taylored Manifest generation thanks to webextension-toolbox
 - Automatic build on code changes.
 - Auto packs browser specific build files
 - ES6 modules support
 - SASS styling
+- TypeScript by default
+- Smart reload
 
 ## Browser Support
 
@@ -73,7 +75,7 @@ if the vendor is `chrome` or `opera`, this compiles to:
 }
 ```
 
-See the original [README](https://github.com/abhijithvijayan/wext-manifest) of wext-manifest package for more details
+You can check the corresponding plugin's [README](https://github.com/webextension-toolbox/webpack-webextension-plugin) for more details!
 
 ### Development
 
