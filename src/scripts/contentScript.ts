@@ -39,4 +39,3 @@ function iframeRef(frameRef) {
     ? frameRef.contentWindow.document
     : frameRef.contentDocument
 }
-
