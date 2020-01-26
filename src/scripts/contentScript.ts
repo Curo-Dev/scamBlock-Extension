@@ -23,7 +23,7 @@ iframe.onload = function() {
       
       switch(nickname) {
         case "샤샤사":
-          row.hidden = true;                      
+          row.hidden = true;                  
           break;
       }
     }
@@ -39,3 +39,5 @@ function iframeRef(frameRef) {
     ? frameRef.contentWindow.document
     : frameRef.contentDocument
 }
+
+

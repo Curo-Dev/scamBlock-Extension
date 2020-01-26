@@ -5,6 +5,7 @@ browser.runtime.onInstalled.addListener((details) => {
         type: 'normal',
         title: 'Hello, World! %s',
         id: 'myContextMenuItem',
+        targetUrlPatterns: ["https://cafe.naver.com/ArticleList.nhn?search.clubid=10050146&*"],
         contexts: ['link']
       }, function () {
         console.log('contextMenus are create.');
@@ -14,10 +15,7 @@ browser.runtime.onInstalled.addListener((details) => {
 });
 
 function onClickHandler(info, tab) {
-    console.log("Word " + info.frameUrl + " was clicked.");
-    browser.tabs.create({  
-    url: "http://www.google.com/search?q=" + info.frameUrl,
-  });  
+    console.log(info);            
 }
 
 browser.contextMenus.onClicked.addListener(onClickHandler);
