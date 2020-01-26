@@ -2,31 +2,31 @@ const iframe = document.getElementById('cafe_main');
 
 iframe.onload = function() {  
   let body = iframeRef(iframe)
-  if(body.querySelector("#sub-tit > div.title_area > div > h3") != null) { // 게시판 여부    
-    const noticeList = body.querySelectorAll("#main-area > div:nth-child(5) > table > tbody > tr");
+
+
+
+  if(body.querySelector("#sub-tit > div.title_area > div > h3") != null) { // 게시판 여부   
     
-    for(let i = 0; i < noticeList.length; i++){
-      const row = noticeList[i];
-      const nickname = row.querySelector("td.td_name > div > table > tbody > tr > td > a").textContent;
-   
-      switch(nickname) {
-        case "비밀의공구":
-          row.hidden = true;                      
-          break;
-      }
-    }
+    // 게시물 부분
 
     const postList = body.querySelectorAll("#main-area > div:nth-child(6) > table > tbody > tr");
     for(let i = 0; i < postList.length; i++){
       const row = postList[i];
-      const nickname = row.querySelector("td.td_name > div > table > tbody > tr > td > a").textContent;
-      
+      const nicknameElement = row.querySelector("td.td_name > div > table > tbody > tr > td > a");
+      const nickname = nicknameElement.textContent;
+
+      nicknameElement.addEventListener("click", () => {
+        
+      });
+
       switch(nickname) {
-        case "샤샤사":
+        case "하니":
           row.hidden = true;                  
           break;
       }
     }
+
+    // 게시물 부분 끝
     
     
   } else {
