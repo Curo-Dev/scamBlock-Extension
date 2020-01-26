@@ -15,8 +15,15 @@ iframe.onload = function() {
       const nicknameElement = row.querySelector("td.td_name > div > table > tbody > tr > td > a");
       const nickname = nicknameElement.textContent;
 
-      nicknameElement.addEventListener("click", () => {
-        
+      nicknameElement.addEventListener("click", () => {                        
+        setTimeout(() => {
+          const blackElement = document.createElement('li')
+          blackElement.innerHTML = '<a href="#">사용자 블락</a>';          
+          const listElement = body.querySelector("div.perid-layer > ul");                              
+          listElement.append(blackElement);
+          console.log(listElement);
+        }, 500);        
+          
       });
 
       switch(nickname) {
