@@ -2,8 +2,6 @@ import browser from 'webextension-polyfill';
 
 const iframe = document.getElementById('cafe_main');
 
-
-
 const title = document.title;
 let count = 0;
 

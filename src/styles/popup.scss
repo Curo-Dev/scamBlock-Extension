@@ -2,20 +2,46 @@
 @import "base/reset";
 @import "base/variables";
 
+$main_color: #FF8C3B;
+
 body {
+  font-family: 'Noto Sans KR';
+  font-weight: 400;
   color: $black;
   background-color: white;
 }
 
 .root {
-  width: 300px;
+  width: 500px;
   height: auto;
 
-  .box-header {    
-    width: 300px;
+  .box-header {        
     height: 50px;
-    background-color: $greyWhite;
+    background-color: $main_color;    
+    display: flex;
+    flex-direction: row;
 
+    .menu {
+      width: 50%;
+      align-items: center;      
+      border-bottom: 3px solid #cc7131;      
+      display: flex;
+      justify-content: center;
+
+      i {
+        color: #cc7131;
+        font-size: 24px;
+      }
+
+      &.active {
+        border-bottom: 3px solid white;
+        box-shadow: 0 4px 6px rgba(50, 50, 93, .03), 0 1px 3px rgba(0, 0, 0, .03);
+
+        i {
+          color: white;
+        }
+      }
+    }
 
   }
 
