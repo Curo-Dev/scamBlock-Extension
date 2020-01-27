@@ -18,11 +18,11 @@ iframe.onload = function() {
       nicknameElement.addEventListener("click", () => {                        
         setTimeout(() => {
           const blackElement = document.createElement('li')
-          blackElement.innerHTML = '<a href="#">사용자 블락</a>';          
+          blackElement.innerHTML = '<a href="#">사용자블락</a>';          
           const listElement = body.querySelector("div.perid-layer > ul");                              
           listElement.append(blackElement);
           console.log(listElement);
-        }, 500);        
+        }, 500);
           
       });
 
