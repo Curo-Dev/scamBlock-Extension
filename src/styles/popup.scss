@@ -6,7 +6,7 @@ $main_color: #FF8C3B;
 
 body {
   font-family: 'Noto Sans KR';
-  font-weight: 400;
+  font-weight: 700;
   color: $black;
   background-color: white;
 }
@@ -46,12 +46,42 @@ body {
   }
 
   .box-body {
-    ul {
-      list-style-type: none;
+    padding: 20px 25px;
 
-      li.list-item {
-        padding: 15px 15px;
-        border-bottom: 1px solid #7c7c7c;
+    .row {
+      .row-title {
+        font-size: 18px;
+        font-weight: 700;
+
+        .row-count {
+          color: #7c7c7c;
+          font-size: 14px;          
+        }
+      }
+
+      ul#list {
+        
+        padding-top: 10px;
+        list-style-type: none;
+
+        li#folder {
+          cursor: pointer;
+          font-size: 15px;
+        }
+
+        li.list-item {
+          align-items: center;
+          display: flex;
+          font-size: 14px;
+          padding: 1px 15px;
+
+          i {
+            color: #d90202;
+            cursor: pointer;
+            font-size: 11px;
+            padding-left: 3px;
+          }
+        }
       }
     }
   }
