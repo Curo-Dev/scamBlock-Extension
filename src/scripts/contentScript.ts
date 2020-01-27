@@ -3,6 +3,7 @@ import browser from 'webextension-polyfill';
 const iframe = document.getElementById('cafe_main');
 
 
+
 const title = document.title;
 let count = 0;
 
@@ -39,36 +40,41 @@ iframe.onload = function() {
                     browser.storage.local.set({blockUsers: users}).then(() => {
                       row.hidden = true;                      
                     })
+                    console.log("다중 실행");
+                    
                   } else {
+                    
                     browser.storage.local.set({blockUsers: [id]}).then(() => {
                       row.hidden = true;                      
                     })
+                    console.log("실행");
+                    
                   }
                 })
-                
-                  
-                  // console.log(userArray);
-                  // userArray.push(id);
-                  browser.storage.local.set({blockUsers: [id]}).then(() => {
-                  }, (err) => {});                                  
-                
+                                                                   
                 body.querySelector("div.perid-layer").style.display = "none";
               });
             }  
           }
         }, 100)
       });
-
-      // 차단 부분
-      browser.storage.local.get("blockUsers").then((user) => {                     
-        const users = user.blockUsers.filter(user => user == id);               
-        if (users.length > 0) {
-          row.hidden = true;
-          count++;
-          console.log(`${id} is Blocked!`);
-          
-          body.querySelector("p#count").innerHTML = `<p id="count"> 차단된 갯수 ${count}</p>`
-          document.title = title + ` (${count})`;
+      
+      browser.storage.local.get("blockUsers").then((user) => {     
+        if (user.blockUsers) {                
+          const users = user.blockUsers.filter(user => user == id);               
+          if(users.length > 0){
+            row.hidden = true;
+            count++;
+            console.log(`${id} is Blocked!`);
+            
+            body.querySelector("p#count").innerHTML = `
+              <p id="count"> 현재 누적된 차단된 갯수 
+                <span style="padding: 5px 10px; border-radius: 50px; font-size: 12px; background-color: orange; color: white;">${count}</span>
+              </p>
+            `;
+            
+            document.title = title + ` (${count})`;          
+          }
         }
       }, (err) => {
         console.log(err);      
@@ -77,7 +83,11 @@ iframe.onload = function() {
     
     const newDiv = document.createElement("div");          
           newDiv.style.float = "left";
-          newDiv.innerHTML = `<p id="count"> 차단된 갯수 ${count}</p>`;
+          newDiv.innerHTML = `
+            <p id="count"> 현재 누적된 차단된 갯수 
+              <span style="padding: 5px 10px; border-radius: 50px; font-size: 12px; background-color: orange; color: white;">${count}</span>
+            </p>
+          `;
 
 
     body.querySelector("#main-area > div.post_btns").appendChild(newDiv);

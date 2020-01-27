@@ -1,17 +1,28 @@
 import browser from 'webextension-polyfill';
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const tabs = await browser.tabs.query({
-        active: true,
-        lastFocusedWindow: true,
-    });
-
-    const url = tabs.length && tabs[0].url;
-
-    const response = await browser.runtime.sendMessage({
-        msg: 'asdasdas',
-        url,
-    });
-    // eslint-disable-next-line no-console
-    console.log(response);
+  browser.storage.local.get("blockUsers").then((user) => {
+    const array = user.blockUsers;
+    if(user.blockUsers && array.length > 0){
+      for(let i = 0; i < array.length; i++){
+        const user = array[i];
+        const userElement = document.createElement('li')            
+        userElement.className = "list-item";
+        userElement.innerHTML = `${user}`;
+        document.querySelector("#list").append(userElement)
+      }
+    } else {
+      const userElement = document.createElement('li')            
+      userElement.className = "list-item";
+      userElement.innerHTML = `없음`;
+      document.querySelector("#list").append(userElement)
+    }     
+  });
 });
+
+document.getElementById("start").onclick = function () {
+    browser.storage.local.clear();
+    location.reload();
+};
+
+

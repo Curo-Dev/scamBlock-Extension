@@ -4,5 +4,29 @@
 
 body {
   color: $black;
-  background-color: $greyWhite;
+  background-color: white;
+}
+
+.root {
+  width: 300px;
+  height: auto;
+
+  .box-header {    
+    width: 300px;
+    height: 50px;
+    background-color: $greyWhite;
+
+
+  }
+
+  .box-body {
+    ul {
+      list-style-type: none;
+
+      li.list-item {
+        padding: 15px 15px;
+        border-bottom: 1px solid #7c7c7c;
+      }
+    }
+  }
 }
