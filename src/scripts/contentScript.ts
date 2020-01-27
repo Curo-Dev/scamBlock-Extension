@@ -5,35 +5,6 @@ const iframe = document.getElementById('cafe_main');
 iframe.onload = function() {  
   let body = iframeRef(iframe)
 
-  const value = "바보";
-
-  function setItem() {
-    console.log("OK");
-  }
-
-  function onError(error) {
-    console.log(error)
-  }
-
-  var monster = {
-    name: "Kraken",
-    tentacles: true,
-    eyeCount: 10
-  }
-  
-  var kitten = {
-    name: "Moggy",
-    tentacles: false,
-    eyeCount: 2
-  }
-
-
-  browser.storage.local.set({kitten, monster}).then(() => {
-
-  }, (error) => {
-    console.log(error);    
-  });
-
   // browser.storage.local.get("kitten").then(gotKitten, onError);
 
   if(body.querySelector("#sub-tit > div.title_area > div > h3") != null) { // 게시판 여부   
@@ -44,21 +15,34 @@ iframe.onload = function() {
     for(let i = 0; i < postList.length; i++){
       const row = postList[i];
       const userElement = row.querySelector("td.td_name > div > table > tbody > tr > td > a");
-      const id = userElement.getAttribute('onclick').split(",")[1].replace("\'", "");
+      const id = userElement.getAttribute('onclick').split(",")[1].trim().replace(/[']/g, "");            
 
-      console.log(id);
-      
-
-      // userElement.addEventListener("click", () => {                        
-      //   setTimeout(() => {
-      //     const blackElement = document.createElement('li')
-      //     blackElement.innerHTML = `<a href="#" onclick="blockUser(${nickname})">사용자블락</a>`;          
-      //     const listElement = body.querySelector("div.perid-layer > ul");                              
-      //     listElement.append(blackElement);
-      //     console.log(listElement);
-      //   }, 500);
-          
-      // });
+      userElement.addEventListener("click", () => {            
+        const repeat = setInterval(() => {
+          console.log("Repeat Ready");
+          if(body.querySelector("div.perid-layer > ul") != null) {            
+            clearInterval(repeat);
+            browser.storage.local.set({id}).then(() => {
+              console.log("OK");
+            }, (error) => {
+              console.log(error);
+            });
+            if(body.querySelector("li.blackUser") == null) {
+              const blackElement = document.createElement('li')            
+              blackElement.className = "blackUser";
+              blackElement.innerHTML = `<a href="#" data-user="${id}">⛔ 사용자 차단</a>`;
+              const listElement = body.querySelector("div.perid-layer > ul");            
+              listElement.append(blackElement); 
+              listElement.querySelectorAll("li").forEach(le => { le.style.fontSize = "11px" });
+              console.log(listElement);          
+            
+              blackElement.addEventListener("click", () => {
+                blockUser(id);            
+              });
+            }  
+          }
+        }, 100)
+      });
 
       // switch(nickname) {
       //   case "하니":
@@ -81,4 +65,7 @@ function iframeRef(frameRef) {
     : frameRef.contentDocument
 }
 
+function blockUser(id){
+  console.log(`User Blocked : ${id}`);  
+}
 
