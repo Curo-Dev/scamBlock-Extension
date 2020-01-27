@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Sample WebExtension",
+  "name": "ScamBlock",
   "icons": {
     "16": "assets/icons/16.png",
     "32": "assets/icons/32.png",
