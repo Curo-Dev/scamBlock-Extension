@@ -38,6 +38,7 @@ iframe.onload = function() {
             
               blackElement.addEventListener("click", () => {
                 blockUser(id);            
+                body.querySelector("div.perid-layer").style.display = "none";
               });
             }  
           }
