@@ -4,7 +4,6 @@ const iframe = document.getElementById('cafe_main');
 
 iframe.onload = function() {  
   let body = iframeRef(iframe)
-  
   const BoardTitle = body.querySelector("#sub-tit > div.title_area > div > h3") ;
   if(BoardTitle != null) { // 게시판 여부                            
     console.log(body.querySelector("#sub-tit > div.title_area > div > h3").textContent);
@@ -33,11 +32,29 @@ iframe.onload = function() {
               console.log(listElement);          
             
               blackElement.addEventListener("click", () => {
-                browser.storage.local.set({blockUsers: [id]}).then(() => {
-                  console.log(`Block ${id} OK`);
-                }, (error) => {
-                  console.log(error);
-                });
+
+                browser.storage.local.get("blockUsers").then((user) => {
+                  if (user.blockUsers && user.blockUsers.length > 0) {
+                    const users = user.blockUsers
+                    users.push(id)
+                    browser.storage.local.set({blockUsers: users}).then(() => {
+                      row.hidden = true;
+                      console.log("블락되었습니다. (다중)")
+                    })
+                  } else {
+                    browser.storage.local.set({blockUsers: [id]}).then(() => {
+                      row.hidden = true;
+                      console.log("[1] 블락 되었습니다.");                      
+                    })
+                  }
+                })
+                
+                  
+                  // console.log(userArray);
+                  // userArray.push(id);
+                  browser.storage.local.set({blockUsers: [id]}).then(() => {
+                  }, (err) => {});                                  
+                
                 body.querySelector("div.perid-layer").style.display = "none";
               });
             }  
@@ -46,9 +63,7 @@ iframe.onload = function() {
       });
 
       // 차단 부분
-      browser.storage.local.get("blockUsers").then((user) => {             
-        console.log(user);
-        
+      browser.storage.local.get("blockUsers").then((user) => {                     
         const users = user.blockUsers.filter(user => user == id);               
         if (users.length > 0) {
           row.hidden = true;
