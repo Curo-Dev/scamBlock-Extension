@@ -33,18 +33,18 @@ iframe.onload = function() {
             
               blackElement.addEventListener("click", () => {
 
-                browser.storage.local.get("blockUsers").then((user) => {
+                browser.storage.sync.get("blockUsers").then((user) => {
                   if (user.blockUsers && user.blockUsers.length > 0) {
                     const users = user.blockUsers
                     users.push(id)
-                    browser.storage.local.set({blockUsers: users}).then(() => {
+                    browser.storage.sync.set({blockUsers: users}).then(() => {
                       row.hidden = true;                      
                     })
                     console.log("다중 실행");
                     
                   } else {
                     
-                    browser.storage.local.set({blockUsers: [id]}).then(() => {
+                    browser.storage.sync.set({blockUsers: [id]}).then(() => {
                       row.hidden = true;                      
                     })
                     console.log("실행");
@@ -59,7 +59,7 @@ iframe.onload = function() {
         }, 100)
       });
       
-      browser.storage.local.get("blockUsers").then((user) => {     
+      browser.storage.sync.get("blockUsers").then((user) => {     
         if (user.blockUsers) {                
           const users = user.blockUsers.filter(user => user == id);               
           if(users.length > 0){

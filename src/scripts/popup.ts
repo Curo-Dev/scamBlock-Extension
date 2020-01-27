@@ -1,7 +1,7 @@
 import browser from 'webextension-polyfill';
 
 document.addEventListener('DOMContentLoaded', async () => {
-  browser.storage.local.get("blockUsers").then((user) => {
+  browser.storage.sync.get("blockUsers").then((user) => {
     const array = user.blockUsers;
     if(user.blockUsers && array.length > 0){
       for(let i = 0; i < array.length; i++){
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 document.getElementById("start").onclick = function () {
-    browser.storage.local.clear();
+    browser.storage.sync.clear();
     location.reload();
 };
 
