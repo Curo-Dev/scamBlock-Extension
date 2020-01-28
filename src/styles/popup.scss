@@ -85,5 +85,18 @@ body {
         }
       }
     }
+    &:nth-child(3) {
+      .row {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+
+        i {
+          color: #df7429;
+          cursor: pointer;
+          font-size: 18px;
+        }
+      }
+    }
   }
 }

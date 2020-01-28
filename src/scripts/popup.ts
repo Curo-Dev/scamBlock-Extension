@@ -77,10 +77,9 @@ document.getElementById("folder").onclick = function () {
   }   
 };
 
-
-// document.getElementById("start").onclick = function () {
-//     browser.storage.sync.clear();
-//     location.reload();
-// };
+document.getElementById("reset").onclick = function () {
+  browser.storage.sync.clear();
+  location.reload();
+};
 
 
