@@ -3,6 +3,7 @@ import browser from 'webextension-polyfill';
 document.addEventListener('DOMContentLoaded', async () => {
   browser.storage.sync.get("blockUsers").then((user) => {
     const array = user.blockUsers;
+    array.sort();
     if(user.blockUsers && array.length > 0){
       document.querySelector("#count").innerHTML = `(${array.length}명)`
       for(let i = 0; i < array.length; i++){
