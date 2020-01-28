@@ -17,8 +17,7 @@ iframe.onload = function() {
       const id = userElement.getAttribute('onclick').split(",")[1].trim().replace(/[']/g, "");            
 
       userElement.addEventListener("click", () => {            
-        const repeat = setInterval(() => {
-          console.log("Repeat Ready");
+        const repeat = setInterval(() => { // repeat Ready          
           if(body.querySelector("div.perid-layer > ul") != null) {                        
             clearInterval(repeat);            
             if(body.querySelector("li.blackUser") == null) {
@@ -30,28 +29,22 @@ iframe.onload = function() {
               listElement.querySelectorAll("li").forEach(le => { le.style.fontSize = "11px" });
             
               blackElement.addEventListener("click", () => {
-
                 browser.storage.sync.get("blockUsers").then((user) => {
                   if (user.blockUsers && user.blockUsers.length > 0) {
                     const users = user.blockUsers
                     users.push(id)
                     browser.storage.sync.set({blockUsers: users}).then(() => {
                       row.hidden = true;                      
-                    })
-                    console.log("다중 실행");
-                    
+                    })                                        
                   } else {
-                    
                     browser.storage.sync.set({blockUsers: [id]}).then(() => {
                       row.hidden = true;                      
-                    })
-                    console.log("실행");
-                    
+                    })                    
                   }
-                })
-                                                                   
-                body.querySelector("div.perid-layer").style.display = "none";
+                })                                                                   
+                body.querySelector("div.perid-layer").style.display = "none"; // layer close
               });
+
             }  
           }
         }, 100)
@@ -62,9 +55,7 @@ iframe.onload = function() {
           const users = user.blockUsers.filter(user => user == id);               
           if(users.length > 0){
             row.hidden = true;
-            count++;
-            console.log(`${id} is Blocked!`);
-            
+            count++;                        
             body.querySelector("p#count").innerHTML = `
               <p id="count"> 현재 누적된 차단된 갯수 
                 <span style="padding: 5px 10px; border-radius: 50px; font-size: 12px; background-color: orange; color: white;">${count}</span>
@@ -74,9 +65,8 @@ iframe.onload = function() {
             document.title = title + ` (${count})`;          
           }
         }
-      }, (err) => {
-        console.log(err);      
-      });
+      }, (err) => { console.log(err) });
+
     }
     
     const newDiv = document.createElement("div");          
@@ -88,20 +78,8 @@ iframe.onload = function() {
           `;
 
 
-    body.querySelector("#main-area > div.post_btns").appendChild(newDiv);
-
-    
-  } else {
-    console.log("게시판이 아닙니다.");    
-  };
+    body.querySelector("#main-area > div.post_btns").appendChild(newDiv);    
+  }
 }
 
-function iframeRef(frameRef) {
-  return frameRef.contentWindow
-    ? frameRef.contentWindow.document
-    : frameRef.contentDocument
-}
-
-function changeTitle(){
-  
-}
+function iframeRef(frameRef) { return frameRef.contentWindow ? frameRef.contentWindow.document : frameRef.contentDocument };

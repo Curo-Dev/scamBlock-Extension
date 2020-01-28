@@ -38,8 +38,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         browser.storage.sync.set({blockUsers: userFilter})
         location.reload();        
       } else {      
-        // browser.storage.sync.clear();
-        console.log("전부 초기화");      
+        browser.storage.sync.clear();            
       }
     })
   }
