@@ -45,24 +45,42 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 
+document.getElementById("ban").onclick = () => {  
+  if(!document.getElementById("ban").getAttribute("class").includes('active')){
+    document.getElementById("ban").setAttribute("class", "menu active");
+    document.getElementById("settings").setAttribute("class", "menu");
+    document.querySelector("body > div > div:nth-child(2)").setAttribute("style", "display: block");
+    document.querySelector("body > div > div:nth-child(3)").setAttribute("style", "display: none");
+  }
+}
+
+
+document.getElementById("settings").onclick = () => {  
+  if(!document.getElementById("settings").getAttribute("class").includes('active')){
+    document.getElementById("ban").setAttribute("class", "menu");
+    document.getElementById("settings").setAttribute("class", "menu active");
+    document.querySelector("body > div > div:nth-child(2)").setAttribute("style", "display: none");
+    document.querySelector("body > div > div:nth-child(3)").setAttribute("style", "display: block");
+  }
+}
 
 document.getElementById("folder").onclick = function () {
   const list = document.getElementById("list");
   if(list.getAttribute("class") == "open") {
     list.querySelectorAll("li.list-item").forEach(e => { e.setAttribute("style", "display: none") });
     list.setAttribute("class", "close");
-    list.querySelector("li.folder > i").setAttribute("class", "fas fa-folder")
+    list.querySelector("li#folder > i").setAttribute("class", "fas fa-folder")
   } else {
     list.querySelectorAll("li.list-item").forEach(e => { e.setAttribute("style", "display: block") });
     list.setAttribute("class", "open");
-    list.querySelector("li.folder > i").setAttribute("class", "fas fa-folder-open")
+    list.querySelector("li#folder > i").setAttribute("class", "fas fa-folder-open")
   }   
 };
 
 
-document.getElementById("start").onclick = function () {
-    browser.storage.sync.clear();
-    location.reload();
-};
+// document.getElementById("start").onclick = function () {
+//     browser.storage.sync.clear();
+//     location.reload();
+// };
 
 
