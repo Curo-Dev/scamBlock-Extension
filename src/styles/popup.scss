@@ -60,9 +60,10 @@ body {
       }
 
       ul#list {
-        
-        padding-top: 10px;
+        max-height: 250px;
         list-style-type: none;
+        overflow: auto;
+        padding-top: 10px;
 
         li#folder {
           cursor: pointer;
