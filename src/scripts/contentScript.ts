@@ -47,7 +47,7 @@ iframe.onload = function() {
 
             }  
           }
-        }, 100)
+        }, 50)
       });
       
       browser.storage.sync.get("blockUsers").then((user) => {     
