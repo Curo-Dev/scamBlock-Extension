@@ -1,18 +1,11 @@
-<h1 align="center">🚀 web-extension-starter</h1>
-<p align="center">Web Extension starter to build "Write Once Run on Any Browser" extension</p>
+<h1 align="center">☕ scamBlock-Extension</h1>
+<p align="center">네이버 카페 `중고나라`의 이용에 도움을 주는 확장 기능입니다.</p>
 <h3 align="center">🙋‍♂️ Maintained by <a href="https://github.com/BasixKOR">@BasixKOR</a></h3>
 
 
-## Features
+## 기능
 
-- Cross Browser Support (Web-Extensions API) with mozilla's polyfill
-- Browser Taylored Manifest generation thanks to webextension-toolbox
-- Automatic build on code changes.
-- Auto packs browser specific build files
-- ES6 modules support
-- SASS styling
-- TypeScript by default
-- Smart reload
+- 사용자 지정 차단
 
 ## Browser Support
 
@@ -20,62 +13,6 @@
 ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 49 & later ✔ | 52 & later ✔ | 36 & later ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔
-
-## Demo
-
-- [abhijithvijayan/kutt-extension](https://github.com/abhijithvijayan/kutt-extension)
-
-## 🚀 Quick Start
-
-- `yarn install` to install dependencies.
-- `yarn run dev:chrome` to start the development server for chrome extension.
-- `yarn run dev:firefox` to start the development server for firefox addon.
-- `yarn run dev:opera` to start the development server for opera extension.
-- `yarn run build:chrome` to build chrome extension.
-- `yarn run build:firefox` to build firefox addon.
-- `yarn run build:opera` to build opera extension.
-- `yarn run build` builds and packs extensions all at once to extension/ directory.
-
-## Usage
-
-Update `src/manifest/index.js` file with browser vendor prefixed manifest keys
-
-```js
-{
-  "__chrome__name": "SuperChrome",
-  "__firefox__name": "SuperFox",
-  "__edge__name": "SuperEdge",
-  "__opera__name": "SuperOpera"
-}
-```
-
-if the vendor is `chrome` this compiles to:
-
-```js
-{
-  "name": "SuperChrome",
-}
-```
-
----
-
-Add keys to multiple vendors by seperating them with | in the prefix
-
-```
-{
-  __chrome|opera__name: "SuperBlink"
-}
-```
-
-if the vendor is `chrome` or `opera`, this compiles to:
-
-```
-{
-  "name": "SuperBlink"
-}
-```
-
-You can check the corresponding plugin's [README](https://github.com/webextension-toolbox/webpack-webextension-plugin) for more details!
 
 ### Development
 
