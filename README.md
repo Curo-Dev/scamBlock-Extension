@@ -7,14 +7,14 @@
 
 - 사용자 지정 차단
 
-## Browser Support
+## 브라우저 지원
 
 | [![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](https://chrome.google.com/webstore/detail/kutt/pklakpjfiegjacoppcodencchehlfnpd) | [![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](https://addons.mozilla.org/firefox/addon/kutt/) | [![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png)](CONTRIBUTING.md#for-opera-users) | [![Yandex](https://raw.github.com/alrra/browser-logos/master/src/yandex/yandex_48x48.png)](https://chrome.google.com/webstore/detail/kutt/pklakpjfiegjacoppcodencchehlfnpd) | [![Brave](https://raw.github.com/alrra/browser-logos/master/src/brave/brave_48x48.png)](https://chrome.google.com/webstore/detail/kutt/pklakpjfiegjacoppcodencchehlfnpd) | [![vivaldi](https://raw.github.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png)](https://chrome.google.com/webstore/detail/kutt/pklakpjfiegjacoppcodencchehlfnpd) |
 ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 49 & later ✔ | 52 & later ✔ | 36 & later ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔
 
-### Development
+### 개발 환경
 
 - `yarn install` to install dependencies.
 - To watch file changes in developement
@@ -51,10 +51,14 @@
 
 - `yarn run build` builds the extension for all the browsers to `extension/BROWSER` directory respectively.
 
-## Show your support
+## 도움이 되셨나요?
 
-Give a ⭐️ if this project helped you!
+이 프로젝트가 여러분에게 도움이 되었다면, `⭐️ Star` 를 눌러주세요!
 
-## Licence
+## 라이선스
 
-Code released under the [MIT License](LICENSE).
+해당 프로젝트는 `MIT License`로 배포됩니다. [📃 LICENSE](https://github.com/team-octa/scamBlock-Extension/blob/master/LICENCE)
+
+### Thanks to
+
+- [web-extension-starter](https://github.com/abhijithvijayan/web-extension-starter) (MIT License)
