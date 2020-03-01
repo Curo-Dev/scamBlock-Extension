@@ -43,9 +43,8 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://cafe.naver.com/joonggonara/*",
-        "https://cafe.naver.com/joonggonara?*" 
+      "matches": [        
+        "https://cafe.naver.com/joonggonara*" 
       ],
       "js": ["js/contentScript.bundle.js"]
     }
