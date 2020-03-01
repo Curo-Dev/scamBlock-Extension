@@ -7,9 +7,9 @@
     "48": "assets/icons/48.png",
     "128": "assets/icons/128.png"
   },
-  "description": "Sample description",
+  "description": "중고나라에서 사용자 블락(차단)을 할 수 있습니다.n",
   "homepage_url": "https://github.com/team-octa/scamBlock-Extension",
-  "short_name": "Sample Name",
+  "short_name": "ScamBlock",
   "permissions": ["storage", "contextMenus", "tabs", "activeTab", "https://cafe.naver.com/joonggonara"],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "__chrome|firefox__author": "abhijithvijayan",
