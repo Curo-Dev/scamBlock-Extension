@@ -6,11 +6,14 @@ const title = document.title;
 let count = 0;
 
 iframe.onload = function() {  
+  console.log(0);
+  
   let body = iframeRef(iframe)
   const BoardTitle = body.querySelector("#sub-tit > div.title_area > div > h3") ;
-  if(BoardTitle != null) { // 게시판 여부                                    
+  if(BoardTitle != null) { // 게시판 여부      
+    console.log(1);                              
     let postList = body.querySelectorAll("#main-area > div:nth-child(7) > table > tbody > tr");
-    if(BoardTitle.textContent == "전체글보기") postList = body.querySelectorAll("#main-area > div:nth-child(6) > table > tbody > tr");
+    if(BoardTitle.textContent) postList = body.querySelectorAll("#main-area > div:nth-child(6) > table > tbody > tr");
     for(let i = 0; i < postList.length; i++){
       const row = postList[i];
       const userElement = row.querySelector("td.td_name > div > table > tbody > tr > td > a");
