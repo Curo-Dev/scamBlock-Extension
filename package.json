@@ -1,10 +1,10 @@
 {
-  "name": "Octa-ScamBlock-Extension",
+  "name": "ScamBlock-Extension",
   "version": "1.0.0",
   "description": "Web extension starter",
   "private": true,
   "main": "src/scripts/background.js",
-  "repository": "https://github.com/team-octa/scamBlock-Extension",
+  "repository": "https://github.com/Curo-Dev/scamBlock-Extension",
   "author": "abhijithvijayan <34790378+abhijithvijayan@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
